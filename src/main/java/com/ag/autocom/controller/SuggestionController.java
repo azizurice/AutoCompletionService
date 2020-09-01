@@ -20,7 +20,7 @@ import com.ag.autocom.service.SuggestionService;
 import com.ag.autocom.service.dto.CityDto;
 
 @RestController
-@RequestMapping("api/search/")
+@RequestMapping("/")
 public class SuggestionController {
 	private static final Logger log = LoggerFactory.getLogger(SuggestionController.class);
 	@Autowired

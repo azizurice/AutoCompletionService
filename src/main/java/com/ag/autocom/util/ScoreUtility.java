@@ -44,28 +44,8 @@ public class ScoreUtility {
 
 	}
 
-	/**
-	 * 
-	 * Convert a number into a value between 0 and 1, given that the number is
-	 * between min and max. 0 means value = max, and 1 means value = min.
-	 *
-	 * @param value the number that needs to be normalized
-	 * @param min   the smallest number in the range.
-	 * @param max   the largest number in the range.
-	 * @return a double value between 0 to 1 scale.
-	 */
-//	public static double normalizeScore(double value, double min, double max) {
-//		return 1 - ((value - min) / (max - min));
-//	}
-
 	public static double normalizeScore(double originalValue, double minOriginalRange, double maxOriginalRange,
 			double minNewRange, double maxNewRange) {
-
-		// MATH_SCALE_VALUES
-		// Converts a value from one range into another
-		// (maxNewRange - minNewRange)(originalValue - minOriginalRange)
-		// y = ----------------------------------------------------------- + minNewRange
-		// (maxOriginalRange - minOriginalRange)
 
 		return minNewRange + (((maxNewRange - minNewRange) * (originalValue - minOriginalRange))
 				/ (maxOriginalRange - minOriginalRange));
