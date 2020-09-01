@@ -14,7 +14,9 @@ This is a simple project but covers multiple things such as collecting raw data,
 Then the project is desinged using layred architecture such as web layer, service layer, data layer. The custom error and exception handling are managed seperately keeping a view in mind that we can handle any type of errors in more managed way. The unit testing is done using the tool **Junit 5** and other testing library.
 
 Using the following REST API endpoint, you can test the project.
+
     GET http://localhost:8080/suggestions?q=Londo
+    
     GET GET /suggestions?q=Londo&latitude=43.70011&longitude=-79.4163
  
 In any other formats except the above two, the server will respond with a custom error message.
