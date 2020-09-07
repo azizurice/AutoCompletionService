@@ -5,13 +5,22 @@ This repo implements a REST API with exception handling and testing that provide
 ## How to run?
 Step-1: Clone the project
 Step-2: Go inside the project directory, then run the following commands.
-Step-3: $mvn package
+Step-3: $mvn clean package
 Step-4: ./mvnw spring-boot:run
+
+### If you want to use just Docker
+
+  After the step-3, run the following commands:
+
+  $ docker-compose up --build       # docker image will be created with name auto-completion-img
+  $ sudo docker run -d -p 8080:8080 -t auto-completion-img   # Start the container 
+
+
 
 
 This is a simple project but covers multiple things such as collecting raw data, writing RESTfull API, handling exception, and doing few unit tests. First, it collects raw data from a CSV file automatically using **spring-boot-starter-batch** module. The conversion from a text file to csv file is done manually. Thereafter, the required processed data is saved into in-memory **h2database**.
 
-Then the project is desinged using layred architecture such as web layer, service layer, data layer. The custom error and exception handling are managed seperately keeping a view in mind that we can handle any type of errors in more managed way. The unit testing is done using the tool **Junit 5** and other testing library.
+Then the project is designed using layered architecture such as web layer, service layer, data layer. The custom error and exception handling are managed separately keeping a view in mind that we can handle any type of errors in more managed way. The unit testing is done using the tool **Junit 5** and other testing library.
 
 Using the following REST API endpoint, you can test the project.
 
@@ -21,7 +30,7 @@ Using the following REST API endpoint, you can test the project.
 
 In any other formats except the above two, the server will respond with a custom error message.
 
-To provide auto-complete suggestion, I calculate confidence score in a scale between 0 and 1. The confidence score is the sum of **user distance** score and  **text maching** score. In this case, user distance has been given more priority(7) and text-matching has been given less priority(3). To find out the number of matching and different characters, I use **diff-match-patch** library. We can consider more field and need to invest time in algorithm to get the better confidence score which will ultimately provide a better customer service.  
+To provide auto-complete suggestion, I calculate confidence score in a scale between 0 and 1. The confidence score is the sum of **user distance** score and  **text matching** score. In this case, user distance has been given more priority(7) and text-matching has been given less priority(3). To find out the number of matching and different characters, I use **diff-match-patch** library. We can consider more field and need to invest time in algorithm to get the better confidence score which will ultimately provide a better customer service.  
 
 
 
