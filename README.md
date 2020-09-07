@@ -12,8 +12,8 @@ Step-4: ./mvnw spring-boot:run
 
   After the step-3, run the following commands:
 
-  $ docker-compose up --build       # docker image will be created with name auto-completion-img
-  $ sudo docker run -d -p 8080:8080 -t auto-completion-img   # Start the container 
+  $ docker-compose up -d --build       # docker image will be created with name auto-completion-img
+  $ sudo docker run -d -p 8080:8080 -t auto-completion-img   # Start the container
 
 
 
